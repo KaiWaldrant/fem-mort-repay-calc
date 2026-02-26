@@ -27,9 +27,10 @@ export default function InputForm({ calcMortgage }: InputFormProps) {
 			<button type="button" onClick={() => reset()}>
 				Clear All
 			</button>
-			<label htmlFor="mortgage-amount">
+			<label>
 				Mortgage Amount
 				<input
+					id="mortgageAmount"
 					type="number"
 					{...register("mortgageAmount", { required: true })}
 					aria-invalid={errors.mortgageAmount ? "true" : "false"}
@@ -38,9 +39,10 @@ export default function InputForm({ calcMortgage }: InputFormProps) {
 			{errors.mortgageAmount?.type === "required" && (
 				<span>This field is required</span>
 			)}
-			<label htmlFor="mortgage-term">
+			<label>
 				Mortgage Term
 				<input
+					id="mortgageTerm"
 					type="number"
 					{...register("mortgageTerm", { required: true })}
 					aria-invalid={errors.mortgageTerm ? "true" : "false"}
@@ -49,9 +51,10 @@ export default function InputForm({ calcMortgage }: InputFormProps) {
 			{errors.mortgageTerm?.type === "required" && (
 				<span>This field is required</span>
 			)}
-			<label htmlFor="interest-rate">
+			<label>
 				Interest Rate
 				<input
+					id="interestRate"
 					type="number"
 					step="0.01"
 					{...register("interestRate", { required: true })}
@@ -62,7 +65,7 @@ export default function InputForm({ calcMortgage }: InputFormProps) {
 				<span>This field is required</span>
 			)}
 			<label htmlFor="">Mortgage Type</label>
-			<label htmlFor="repayment">
+			<label>
 				<input
 					type="radio"
 					value="repayment"
@@ -71,7 +74,7 @@ export default function InputForm({ calcMortgage }: InputFormProps) {
 				/>
 				Repayment
 			</label>
-			<label htmlFor="interest-only">
+			<label>
 				<input
 					type="radio"
 					value="interest-only"
