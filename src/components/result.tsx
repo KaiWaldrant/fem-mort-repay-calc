@@ -14,7 +14,7 @@ export default function Result({ result }: ResultProps) {
 		<>
 			{result.monthlyPayment > 0 ? (
 				<>
-					<div className="result__header">
+					<div className="results-header">
 						<h2>Your results</h2>
 						<p>
 							Your results are shown below based on the information you

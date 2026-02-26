@@ -28,13 +28,16 @@ function App() {
 		setResult({ monthlyPayment, totalPayment })
 	}
 
+	const handleClear = () => {
+		setResult({ monthlyPayment: 0, totalPayment: 0 })
+	}
+
 	return (
 		<main>
-			<section>
-				<h1>Mortgage Repayment Calculator</h1>
-				<InputForm calcMortgage={calcMort} />
+			<section className="calculator">
+				<InputForm calcMortgage={calcMort} clearAll={handleClear} />
 			</section>
-			<section>
+			<section className="results">
 				<Result result={result} />
 			</section>
 		</main>
