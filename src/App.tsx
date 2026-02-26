@@ -1,4 +1,5 @@
 import './App.css'
+import InputForm from './components/input-form'
 
 function App() {
   
@@ -8,7 +9,7 @@ function App() {
     <main>
       <section>
         <h1>Mortgage Repayment Calculator</h1>
-        
+        <InputForm/>
       </section>
     </main>
       
