@@ -1,14 +1,18 @@
 import IllustrationEmpty from "../assets/images/illustration-empty"
 
-interface ResultProps {
+export type Results = {
 	monthlyPayment: number
 	totalPayment: number
 }
 
-export default function Result(result: ResultProps) {
+interface ResultProps {
+	result: Results
+}
+
+export default function Result({ result }: ResultProps) {
 	return (
 		<>
-			{Object.entries(result)?.length > 0 ? (
+			{result.monthlyPayment > 0 ? (
 				<>
 					<div className="result__header">
 						<h2>Your results</h2>
