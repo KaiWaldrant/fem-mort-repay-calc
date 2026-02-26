@@ -7,7 +7,6 @@
     "defaultBranch": "main"
   },
   "files": {
-    "includes": ["**/*.{js,mjs,ts,json,jsonc}"],
     "ignoreUnknown": true
   },
   "formatter": {
