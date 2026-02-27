@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form"
+import IconCalculator from "../assets/images/icon-calculator"
 
 interface InputFormProps {
 	calcMortgage: (data: IFormInputs) => void
@@ -39,8 +40,8 @@ export default function InputForm({ calcMortgage, clearAll }: InputFormProps) {
 			<div className="form-content">
 				<label>
 					Mortgage Amount
-					<div className="input-group">
-						<p className="amount-unit">£</p>
+					<div className="input-group input-left">
+						<p className="input-unit">£</p>
 						<input
 							id="mortgageAmount"
 							type="number"
@@ -48,35 +49,43 @@ export default function InputForm({ calcMortgage, clearAll }: InputFormProps) {
 							aria-invalid={errors.mortgageAmount ? "true" : "false"}
 						/>
 					</div>
+					{errors.mortgageAmount?.type === "required" && (
+						<span className="error-message">This field is required</span>
+					)}
 				</label>
-				{errors.mortgageAmount?.type === "required" && (
-					<span>This field is required</span>
-				)}
-				<label>
-					Mortgage Term
-					<input
-						id="mortgageTerm"
-						type="number"
-						{...register("mortgageTerm", { required: true })}
-						aria-invalid={errors.mortgageTerm ? "true" : "false"}
-					/>
-				</label>
-				{errors.mortgageTerm?.type === "required" && (
-					<span>This field is required</span>
-				)}
-				<label>
-					Interest Rate
-					<input
-						id="interestRate"
-						type="number"
-						step="0.01"
-						{...register("interestRate", { required: true })}
-						aria-invalid={errors.interestRate ? "true" : "false"}
-					/>
-				</label>
-				{errors.interestRate?.type === "required" && (
-					<span>This field is required</span>
-				)}
+				<div className="grouped">
+					<label>
+						Mortgage Term
+						<div className="input-group input-right">
+							<input
+								id="mortgageTerm"
+								type="number"
+								{...register("mortgageTerm", { required: true })}
+								aria-invalid={errors.mortgageTerm ? "true" : "false"}
+							/>
+							<p className="input-unit">years</p>
+						</div>
+						{errors.mortgageTerm?.type === "required" && (
+							<span className="error-message">This field is required</span>
+						)}
+					</label>
+					<label>
+						Interest Rate
+						<div className="input-group input-right">
+							<input
+								id="interestRate"
+								type="number"
+								step="0.01"
+								{...register("interestRate", { required: true })}
+								aria-invalid={errors.interestRate ? "true" : "false"}
+							/>
+							<p className="input-unit">%</p>
+						</div>
+						{errors.interestRate?.type === "required" && (
+							<span className="error-message">This field is required</span>
+						)}
+					</label>
+				</div>
 				<div className="radio-group">
 					<p className="label">Mortgage Type</p>
 					<label>
@@ -98,12 +107,13 @@ export default function InputForm({ calcMortgage, clearAll }: InputFormProps) {
 						Interest Only
 					</label>
 					{errors.mortgageType?.type === "required" && (
-						<span>This field is required</span>
+						<span className="error-message">This field is required</span>
 					)}
 				</div>
 			</div>
 			<button className="form-btn" type="submit">
-				Calculate Repayments
+				<IconCalculator />
+				<p>Calculate Repayment</p>
 			</button>
 		</form>
 	)
