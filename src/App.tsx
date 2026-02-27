@@ -37,7 +37,9 @@ function App() {
 			<section className="calculator">
 				<InputForm calcMortgage={calcMort} clearAll={handleClear} />
 			</section>
-			<section className="results">
+			<section
+				className={`results ${result.monthlyPayment > 0 ? "" : "empty"}`}
+			>
 				<Result result={result} />
 			</section>
 		</main>

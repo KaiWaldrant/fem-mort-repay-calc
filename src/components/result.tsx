@@ -10,34 +10,45 @@ interface ResultProps {
 }
 
 export default function Result({ result }: ResultProps) {
+	const f = new Intl.NumberFormat("en-GB", {
+		style: "currency",
+		currency: "GBP",
+		minimumFractionDigits: 2,
+		maximumFractionDigits: 2,
+	})
 	return (
 		<>
 			{result.monthlyPayment > 0 ? (
 				<>
 					<div className="results-header">
-						<h2>Your results</h2>
-						<p>
+						<h2 className="results__heading">Your results</h2>
+						<p className="results__text">
 							Your results are shown below based on the information you
 							provided. To adjust the results, edit the form and click
 							“calculate repayments” again.
 						</p>
 					</div>
 					<div className="results-card">
-						<div className="results-card__monthly">
-							<p>Your Monthly repayments</p>
-							<p>{result.monthlyPayment}</p>
+						<div className="result-group">
+							<p className="result-group__label">Your Monthly repayments</p>
+							<p className="result__monthly">
+								{f.format(result.monthlyPayment)}
+							</p>
 						</div>
-						<div className="results-card__total">
-							<p>Total you'll repay over the term</p>
-							<p>{result.totalPayment}</p>
+						<hr />
+						<div className="result-group">
+							<p className="result-group__label">
+								Total you'll repay over the term
+							</p>
+							<p className="result__yearly">{f.format(result.totalPayment)}</p>
 						</div>
 					</div>
 				</>
 			) : (
 				<>
 					<IllustrationEmpty />
-					<h2>Results shown here</h2>
-					<p>
+					<h2 className="results__heading text-center">Results shown here</h2>
+					<p className="results__text text-center">
 						Complete the form and click “calculate repayments” to see what your
 						monthly repayments would be.
 					</p>

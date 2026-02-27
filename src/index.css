@@ -161,9 +161,9 @@ input {
 }
 
 .input-unit {
-	height: 100%;
 	display: flex;
 	align-items: center;
+	height: 100%;
 	padding-inline: 1rem;
 	font-size: 1.125rem;
 	font-weight: 700;
@@ -285,4 +285,79 @@ label:has(span.error-message) {
 			border-color: var(--clr-red);
 		}
 	}
+}
+
+/* RESULTS  SECTION */
+
+.results {
+	display: grid;
+	gap: 1.5rem;
+	padding-block: 2rem;
+	padding-inline: 1.5rem;
+	color: var(--clr-white);
+	background-color: var(--clr-slate-900);
+
+	&.empty {
+		gap: 1rem;
+		text-align: center;
+	}
+
+	& svg {
+		justify-self: center;
+	}
+}
+
+.results-header {
+	display: grid;
+	gap: 1rem;
+}
+
+.results__heading {
+	font-size: 1.5rem;
+	font-weight: 700;
+	line-height: 1.25;
+}
+
+.results__text {
+	font-weight: 500;
+	color: var(--clr-slate-300);
+}
+
+.results-card {
+	display: grid;
+	gap: 1rem;
+	padding-block: 1.5rem;
+	padding-inline: 1rem;
+
+	background-color: hsla(0 0% 0% / 0.25);
+
+	border-top: 4px solid var(--clr-lime);
+	border-radius: 8px;
+}
+
+.result-group {
+	display: grid;
+	gap: 0.5rem;
+}
+
+.result-group__label {
+	font-weight: 500;
+	color: var(--clr-slate-300);
+}
+
+.result__monthly {
+	font-size: 2.5rem;
+	font-weight: 700;
+	line-height: normal;
+	color: var(--clr-lime);
+}
+
+.result__yearly {
+	font-size: 1.5rem;
+	font-weight: 700;
+	line-height: 1.25;
+}
+
+hr {
+	border-color: hsl(203 41% 72% / 0.25);
 }
