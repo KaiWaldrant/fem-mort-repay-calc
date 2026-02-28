@@ -87,7 +87,7 @@ export default function InputForm({ calcMortgage, clearAll }: InputFormProps) {
 					</label>
 				</div>
 				<div className="radio-group">
-					<p className="label">Mortgage Type</p>
+					<p className="radio-group__heading">Mortgage Type</p>
 					<label>
 						<input
 							type="radio"

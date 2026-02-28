@@ -7,10 +7,7 @@ import Result from "./components/result"
 import calculateMortgage from "./helpers/calculateMortgage"
 
 function App() {
-	const [result, setResult] = useState<Results>({
-		monthlyPayment: 0,
-		totalPayment: 0,
-	})
+	const [result, setResult] = useState<Results | null>(null)
 
 	const calcMort = ({
 		mortgageAmount,
@@ -29,7 +26,7 @@ function App() {
 	}
 
 	const handleClear = () => {
-		setResult({ monthlyPayment: 0, totalPayment: 0 })
+		setResult(null)
 	}
 
 	return (
@@ -37,9 +34,7 @@ function App() {
 			<section className="calculator">
 				<InputForm calcMortgage={calcMort} clearAll={handleClear} />
 			</section>
-			<section
-				className={`results ${result.monthlyPayment > 0 ? "" : "empty"}`}
-			>
+			<section className={`results ${result !== null ? "" : "empty"}`}>
 				<Result result={result} />
 			</section>
 		</main>

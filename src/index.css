@@ -95,7 +95,7 @@ section {
 }
 
 label,
-.label {
+.radio-group__heading {
 	font-weight: 500;
 	color: var(--clr-slate-700);
 }

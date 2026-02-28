@@ -6,7 +6,7 @@ export type Results = {
 }
 
 interface ResultProps {
-	result: Results
+	result: Results | null
 }
 
 export default function Result({ result }: ResultProps) {
@@ -18,7 +18,7 @@ export default function Result({ result }: ResultProps) {
 	})
 	return (
 		<>
-			{result.monthlyPayment > 0 ? (
+			{result !== null ? (
 				<>
 					<div className="results-header">
 						<h2 className="results__heading">Your results</h2>
