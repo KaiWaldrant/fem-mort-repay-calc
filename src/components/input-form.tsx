@@ -31,13 +31,13 @@ export default function InputForm({ calcMortgage, clearAll }: InputFormProps) {
 
 	return (
 		<form className="input-form" onSubmit={handleSubmit(onSubmit)}>
-			<div className="form-header">
-				<h1 className="form-title">Mortgage Calculator</h1>
+			<div className="input-form__header">
+				<h1 className="input-form__title">Mortgage Calculator</h1>
 				<button className="clear-btn" type="button" onClick={() => onClear()}>
 					Clear All
 				</button>
 			</div>
-			<div className="form-content">
+			<div className="input-form__content">
 				<label>
 					Mortgage Amount
 					<div className="input-group input-left">
@@ -111,7 +111,7 @@ export default function InputForm({ calcMortgage, clearAll }: InputFormProps) {
 					)}
 				</div>
 			</div>
-			<button className="form-btn" type="submit">
+			<button className="input-form__btn" type="submit">
 				<IconCalculator />
 				<p>Calculate Repayment</p>
 			</button>
